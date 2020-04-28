@@ -2,6 +2,7 @@ package com.tang.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.tang.mapper.UserMapper;
+import com.tang.pojo.Detail;
 import com.tang.pojo.User;
 import com.tang.util.TokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;

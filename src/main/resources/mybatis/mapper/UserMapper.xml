@@ -4,8 +4,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tang.mapper.UserMapper">
 
-    <select id="getUserById" resultType="com.tang.pojo.User">
-        select * from myblog.user where id = #{id}
+    <select id="getAllUser" resultType="User">
+        select * from user
     </select>
+
+    <!--一个作者有多个文章-->
+    <select id="getUserById" resultMap="UserBlog">
+        select * from user,blogdetail b where user.id=b.user and user.id=#{id}
+    </select>
+    <resultMap id="UserBlog" type="User">
+        <result property="id" column="id"/>
+        <collection property="detailList" ofType="Detail">
+            <result property="title" column="title"/>
+        </collection>
+    </resultMap>
 
 </mapper>

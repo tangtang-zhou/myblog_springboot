@@ -15,4 +15,6 @@ public interface UserMapper {
 
     public List<User> getAllUser();
 
+    public List<User> getPageUser();
+
 }

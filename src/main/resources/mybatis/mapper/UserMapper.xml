@@ -19,4 +19,8 @@
         </collection>
     </resultMap>
 
+    <select id="getPageUser" resultType="User">
+        select * from user
+    </select>
+
 </mapper>

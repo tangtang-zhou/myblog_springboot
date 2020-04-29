@@ -2,7 +2,7 @@ package com.tang.controller;
 
 import com.tang.pojo.User;
 import com.tang.service.UserService;
-import com.tang.util.TokenUtil;
+import com.tang.util.pages.PageRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,11 +17,11 @@ public class Login {
         System.out.println(user);
         return userService.getUserById(user);
     }
-    /*@GetMapping("/user/{id}")
-    public User getUser(@PathVariable("id") Integer id){
-        userService.getUserById(id);
-        System.out.println();
-        return null;
-    }*/
+
+    @PostMapping("/user")
+    public Object selectUsersPages(@RequestBody PageRequest pageRequest) {
+        System.out.println(pageRequest);
+        return userService.getPageUser(pageRequest);
+    }
 
 }

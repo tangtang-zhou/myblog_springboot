@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String getUserById(User user) {
-        User userForBase = userMapper.getUserById(user.getId());
+        User userForBase = userMapper.getUserByPhone(user.getPhone());
         JSONObject jsonObject = new JSONObject();
         if (userForBase == null) {
             jsonObject.put("message", "登录失败，用户不存在");

@@ -13,6 +13,8 @@ public interface UserMapper {
 
     public User getUserById(Integer id);
 
+    public User getUserByPhone(String phone);
+
     public List<User> getAllUser();
 
     public List<User> getPageUser();

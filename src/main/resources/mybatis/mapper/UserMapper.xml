@@ -8,6 +8,10 @@
         select * from user
     </select>
 
+    <select id="getUserByPhone" resultType="User">
+        select * from user where phone = #{phone}
+    </select>
+
     <!--一个作者有多个文章-->
     <select id="getUserById" resultMap="UserBlog">
         select * from user,blogdetail b where user.id=b.user and user.id=#{id}

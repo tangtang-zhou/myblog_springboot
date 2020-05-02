@@ -11,7 +11,11 @@ import java.util.List;
 @AllArgsConstructor
 public class User {
     private Integer id;
-    private String username;
+    private String phone;
+    private String name;
     private String password;
+    private String email;
+    private Integer sex;
+    private String birth;
     private List<Detail> detailList;
 }

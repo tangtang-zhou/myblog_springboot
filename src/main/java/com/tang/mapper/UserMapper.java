@@ -3,6 +3,7 @@ package com.tang.mapper;
 import com.tang.pojo.Detail;
 import com.tang.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,5 +19,7 @@ public interface UserMapper {
     public List<User> getAllUser();
 
     public List<User> getPageUser();
+
+    public int insertUser(@Param("phone")String phone, @Param("password")String password);
 
 }

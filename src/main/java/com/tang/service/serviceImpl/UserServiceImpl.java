@@ -46,6 +46,11 @@ public class UserServiceImpl implements UserService {
         return PageUtils.getPageResult(pageRequest, getPageInfo(pageRequest));
     }
 
+    @Override
+    public int insertUser(String phone, String password) {
+        return userMapper.insertUser(phone, password);
+    }
+
     private PageInfo<User> getPageInfo(PageRequest pageRequest) {
         int pageNum = pageRequest.getPageNum();
         int pageSize = pageRequest.getPageSize();

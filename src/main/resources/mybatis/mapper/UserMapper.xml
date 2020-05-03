@@ -12,6 +12,10 @@
         select * from user where phone = #{phone}
     </select>
 
+    <insert id="insertUser" parameterType="String">
+        insert into user (phone,password) value (#{phone},#{password})
+    </insert>
+
     <!--一个作者有多个文章-->
     <select id="getUserById" resultMap="UserBlog">
         select * from user,blogdetail b where user.id=b.user and user.id=#{id}

@@ -10,4 +10,6 @@ public interface UserService {
 
     public PageResult getPageUser(PageRequest pageRequest);
 
+    public int insertUser(String phone,String password);
+
 }

@@ -18,6 +18,11 @@ public class Login {
         return userService.getUserById(user);
     }
 
+    @GetMapping ("/register")
+    public int userRegister(@RequestParam("phone")String phone, @RequestParam("password")String password){
+        return userService.insertUser(phone,password);
+    }
+
     @PostMapping("/user")
     public Object selectUsersPages(@RequestBody PageRequest pageRequest) {
         System.out.println(pageRequest);

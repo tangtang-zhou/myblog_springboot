@@ -1,11 +1,11 @@
 package com.tang.controller;
 
+import com.tang.pojo.Detail;
+import com.tang.pojo.Img;
+import com.tang.service.DetailService;
 import com.tang.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -19,6 +19,8 @@ public class ArticleController {
 
     @Autowired
     FileService fileService;
+    @Autowired
+    DetailService detailService;
     private String url;
 
     @RequestMapping(value = "/file",produces = "application/json;charset=UTF-8")
@@ -44,11 +46,18 @@ public class ArticleController {
         try {
             file.transferTo(dest); //保存文件
             url="http://localhost:8888/img/"+fileName;
-            return "true";
+            Img img = new Img();
+            img.setUrl(url);
+            fileService.insertUrl(img);
+            return img.getUrl();
         } catch (IllegalStateException | IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
             return "false";
         }
+    }
+    @RequestMapping(value = "/saveArticle")
+    public int saveArticle(@RequestBody Detail blog) {
+        return detailService.insertDetail(blog);
     }
 }

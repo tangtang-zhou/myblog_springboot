@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tang.mapper.FileMapper">
-    <insert id="insertUrl" parameterType="String">
-        insert into img (img) value (#{img})
+    <insert id="insertUrl" parameterType="Img" useGeneratedKeys="true" keyProperty="id">
+        insert into img (img) value (#{url})
     </insert>
 </mapper>

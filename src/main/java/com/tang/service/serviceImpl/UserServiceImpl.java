@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
             } else {
                 String token = TokenUtil.getToken(userForBase);
                 jsonObject.put("token", token);
-                jsonObject.put("userForBase", userForBase);
+                jsonObject.put("userId", userForBase.getId());
                 return jsonObject.toJSONString();
             }
         }

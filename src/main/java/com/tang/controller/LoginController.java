@@ -15,6 +15,7 @@ public class LoginController {
     @PostMapping("/login")
     public String adminLogin (@RequestBody User user) {
         System.out.println(user);
+        // 返回用户id
         return userService.getUserById(user);
     }
 

@@ -12,4 +12,6 @@ public interface DetailMapper {
 
     public List<Detail> getAllDetail();
 
+    public int insertBlog(Detail detail);
+
 }

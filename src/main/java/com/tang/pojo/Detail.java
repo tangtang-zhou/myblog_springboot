@@ -10,9 +10,11 @@ import lombok.NoArgsConstructor;
 public class Detail {
     private Integer id;
     private String title;
-    private User user;
+    private String user;
+    private String time;
     private String label;
     private String content;
     private String comment;
     private String heat;
+    private String readType;
 }

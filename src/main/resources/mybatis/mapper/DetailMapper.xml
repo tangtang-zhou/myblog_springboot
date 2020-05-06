@@ -35,4 +35,8 @@
         </association>
     </resultMap>
 
+    <insert id="insertBlog" parameterType="Detail">
+        insert into blogdetail(title, user, label, content, time,readType) VALUES (#{title},#{user},#{label},#{content},#{time},#{readType})
+    </insert>
+
 </mapper>

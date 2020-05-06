@@ -1,5 +1,7 @@
 package com.tang.service;
 
+import com.tang.pojo.Img;
+
 public interface FileService {
-    public String insertUrl(String path);
+    public int insertUrl(Img path);
 }

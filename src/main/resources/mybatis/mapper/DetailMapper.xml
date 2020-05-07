@@ -19,24 +19,31 @@
     </select>-->
     <!--方式二，常用-->
     <select id="getAllDetail" resultMap="DetailUser">
-        select * from blogdetail b,user u where b.user=u.id
+        select * from blogdetail b,user u,sort where b.user=u.uid and b.labelid=sort.sid
     </select>
 
     <resultMap id="DetailUser" type="Detail">
-        <result property="id" column="id"/>
+        <result property="bid" column="bid"/>
         <result property="title" column="title"/>
         <result property="label" column="label"/>
         <result property="content" column="content"/>
         <result property="comment" column="comment"/>
         <result property="heat" column="heat"/>
-        <association property="user" javaType="User">
-            <result property="username" column="username"/>
+        <result property="username" column="name"/>
+        <result property="uid" column="uid"/>
+        <result property="sid" column="sid"/>
+        <!--<association property="user" javaType="User">
+            <result property="name" column="name"/>
             <result property="id" column="id"/>
-        </association>
+        </association>-->
     </resultMap>
 
     <insert id="insertBlog" parameterType="Detail">
-        insert into blogdetail(title, user, label, content, time,readType) VALUES (#{title},#{user},#{label},#{content},#{time},#{readType})
+        insert into blogdetail(title, user, labelid, content, time,readType) VALUES (#{title},#{user},#{label},#{content},#{time},#{readType})
     </insert>
+
+    <select id="getAllLabel" resultType="Sort">
+        select * from sort
+    </select>
 
 </mapper>

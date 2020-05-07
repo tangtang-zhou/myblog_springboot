@@ -10,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-    private Integer id;
+    private Integer uid;
     private String phone;
     private String name;
     private String password;

@@ -1,6 +1,7 @@
 package com.tang.mapper;
 
 import com.tang.pojo.Detail;
+import com.tang.pojo.Sort;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -13,5 +14,7 @@ public interface DetailMapper {
     public List<Detail> getAllDetail();
 
     public int insertBlog(Detail detail);
+
+    public List<Sort> getAllLabel();
 
 }

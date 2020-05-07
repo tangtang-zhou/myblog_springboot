@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Img {
-    private Integer iid;
-    private String url;
+public class Sort {
+    private Integer sid;
+    private String label;
 }

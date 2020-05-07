@@ -8,10 +8,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Detail {
-    private Integer id;
+    private Integer bid;
     private String title;
-    private String user;
+    private String username;
+    private Integer uid;
     private String time;
+    private Integer sid;
     private String label;
     private String content;
     private String comment;

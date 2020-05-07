@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/article")
@@ -60,4 +61,10 @@ public class ArticleController {
     public int saveArticle(@RequestBody Detail blog) {
         return detailService.insertDetail(blog);
     }
+
+    @GetMapping("/getAllArticle")
+    public List<Detail> getAllArticle(){
+        return detailService.getAllDetail();
+    }
+
 }

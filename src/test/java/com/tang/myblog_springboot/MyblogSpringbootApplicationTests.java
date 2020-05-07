@@ -2,7 +2,9 @@ package com.tang.myblog_springboot;
 
 import com.tang.mapper.FileMapper;
 import com.tang.mapper.UserMapper;
+import com.tang.pojo.Detail;
 import com.tang.pojo.Img;
+import com.tang.pojo.Sort;
 import com.tang.pojo.User;
 import com.tang.service.DetailService;
 import com.tang.service.FileService;
@@ -30,11 +32,10 @@ class MyblogSpringbootApplicationTests {
 
     @Test
     void contextLoads() {
-        Img img = new Img();
-        img.setUrl("123456");
-
-        System.out.println(fileService.insertUrl(img));
-        System.out.println(img.getId());
+        List<Detail> allDetail = detailService.getAllDetail();
+        for (Detail detail : allDetail) {
+            System.out.println(detail);
+        }
     }
 
 }

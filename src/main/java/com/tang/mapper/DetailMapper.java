@@ -17,4 +17,6 @@ public interface DetailMapper {
 
     public List<Sort> getAllLabel();
 
+    public Object getArticleById();
+
 }

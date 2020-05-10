@@ -67,4 +67,11 @@ public class ArticleController {
         return detailService.getAllDetail();
     }
 
+    @GetMapping("/getArticleById")
+    public String detailArticle(int articleId,int userId){
+        System.out.println(articleId);
+        System.out.println(userId);
+        return null;
+    }
+
 }

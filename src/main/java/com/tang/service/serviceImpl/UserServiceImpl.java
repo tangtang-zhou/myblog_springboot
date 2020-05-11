@@ -22,7 +22,18 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     @Override
-    public String getUserById(User user) {
+    public User getUserById(Integer id) {
+        return null;
+    }
+
+    // 一个作者有多个文章
+    @Override
+    public String getUserAllBlog(User user) {
+        return "";
+    }
+
+    @Override
+    public String getUserByPhone(User user) {
         User userForBase = userMapper.getUserByPhone(user.getPhone());
         JSONObject jsonObject = new JSONObject();
         if (userForBase == null) {

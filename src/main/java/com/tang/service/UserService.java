@@ -6,7 +6,12 @@ import com.tang.util.pages.PageResult;
 
 public interface UserService {
 
-    public String getUserById(User user);
+    public User getUserById(Integer id);
+
+    // 一个作者有多个文章
+    public String getUserAllBlog(User user);
+
+    public String getUserByPhone(User user);
 
     public PageResult getPageUser(PageRequest pageRequest);
 

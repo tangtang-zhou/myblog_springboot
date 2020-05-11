@@ -16,7 +16,7 @@ public class LoginController {
     public String adminLogin (@RequestBody User user) {
         System.out.println(user);
         // 返回用户id
-        return userService.getUserById(user);
+        return userService.getUserByPhone(user);
     }
 
     @GetMapping ("/register")

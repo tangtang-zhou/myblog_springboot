@@ -4,11 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tang.mapper.UserMapper">
 
-    <select id="getAllUser" resultType="User">
-        select * from user
+    <select id="getUserById" resultType="User">
+        select * from user where uid=#{uid}
     </select>
 
-    <select id="getUserByPhone" resultType="User">
+    <select id="getUserByPhone" resultType="UserCheck">
         select * from user where phone = #{phone}
     </select>
 
@@ -17,8 +17,8 @@
     </insert>
 
     <!--一个作者有多个文章-->
-    <select id="getUserById" resultMap="UserBlog">
-        select * from user,blogdetail b where user.id=b.user and user.id=#{id}
+    <select id="getUserAllBlog" resultMap="UserBlog">
+        select * from user,blogdetail b where user.uid=b.user and user.uid=#{id}
     </select>
     <resultMap id="UserBlog" type="User">
         <result property="id" column="id"/>

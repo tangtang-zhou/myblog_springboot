@@ -14,9 +14,10 @@ public interface UserMapper {
 
     public User getUserById(Integer id);
 
-    public User getUserByPhone(String phone);
+    // 一个作者有多个文章
+    public User getUserAllBlog(Integer id);
 
-    public List<User> getAllUser();
+    public User getUserByPhone(String phone);
 
     public List<User> getPageUser();
 

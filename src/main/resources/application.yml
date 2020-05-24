@@ -28,9 +28,6 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
-mybatis:
-  mapper-locations: classpath:mybatis/mapper/*.xml
-  config-location: classpath:mybatis/mybatis-config.xml
 pagehelper:
   #分页插件会自动检测当前的数据库链接，自动选择合适的分页方式。
   helper-dialect: mysql
@@ -41,3 +38,11 @@ pagehelper:
   #为了支持startPage(Object params)方法，增加了该参数来配置参数映射，用于从对象中根据属性名取值， 可以配置 pageNum,pageSize,count,pageSizeZero,reasonable，不配置映射的用默认值， 默认值为pageNum=pageNum。
   params: count=countSql
 
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.tang.pojo

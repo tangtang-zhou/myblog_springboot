@@ -34,7 +34,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String getUserByPhone(User user) {
-        User userForBase = userMapper.getUserByPhone(user.getPhone());
+        return null;
+        /*User userForBase = userMapper.getUserByPhone(user.getPhone());
         JSONObject jsonObject = new JSONObject();
         if (userForBase == null) {
             jsonObject.put("message", "登录失败，用户不存在");
@@ -49,7 +50,7 @@ public class UserServiceImpl implements UserService {
                 jsonObject.put("userId", userForBase.getUid());
                 return jsonObject.toJSONString();
             }
-        }
+        }*/
     }
 
     @Override

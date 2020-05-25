@@ -1,73 +1,48 @@
 package com.tang.service.serviceImpl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tang.mapper.UserMapper;
 import com.tang.pojo.User;
 import com.tang.service.UserService;
-import com.tang.util.TokenUtil;
-import com.tang.util.pages.PageRequest;
-import com.tang.util.pages.PageResult;
-import com.tang.util.pages.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * <p>
+ *  服务实现类
+ * </p>
+ *
+ * @author 汤州
+ * @since 2020-05-24
+ */
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     UserMapper userMapper;
+    private JSONObject userJson;
 
     @Override
-    public User getUserById(Integer id) {
-        return null;
-    }
+    public String getUserByPages(int page,int size) {//参数1：当前页  参数2：每页数量
+        userJson = new JSONObject();
+        Page<User> pageUser = new Page<>(page, size);
+        userMapper.selectPage(pageUser,null);
+        List<User> userPageList = pageUser.getRecords();
+        long total = pageUser.getTotal(); // 总数
 
-    // 一个作者有多个文章
-    @Override
-    public String getUserAllBlog(User user) {
-        return "";
-    }
-
-    @Override
-    public String getUserByPhone(User user) {
-        return null;
-        /*User userForBase = userMapper.getUserByPhone(user.getPhone());
-        JSONObject jsonObject = new JSONObject();
-        if (userForBase == null) {
-            jsonObject.put("message", "登录失败，用户不存在");
-            return jsonObject.toJSONString();
-        } else {
-            if (!userForBase.getPassword().equals(user.getPassword())) {
-                jsonObject.put("message", "登录失败,密码错误");
-                return jsonObject.toJSONString();
-            } else {
-                String token = TokenUtil.getToken(userForBase);
-                jsonObject.put("token", token);
-                jsonObject.put("userId", userForBase.getUid());
-                return jsonObject.toJSONString();
-            }
-        }*/
+        userJson.put("userList",userPageList);
+        userJson.put("total",total);
+        userJson.put("allPage",pageUser.getPages());
+        return userJson.toJSONString();
     }
 
     @Override
-    public PageResult getPageUser(PageRequest pageRequest) {
-        return PageUtils.getPageResult(pageRequest, getPageInfo(pageRequest));
-    }
-
-    @Override
-    public int insertUser(String phone, String password) {
-        return userMapper.insertUser(phone, password);
-    }
-
-    private PageInfo<User> getPageInfo(PageRequest pageRequest) {
-        int pageNum = pageRequest.getPageNum();
-        int pageSize = pageRequest.getPageSize();
-        PageHelper.startPage(pageNum, pageSize);
-        List<User> sysMenus = userMapper.getPageUser();
-        return new PageInfo<User>(sysMenus);
+    public String getUserById(int userId) {
+        userJson = new JSONObject();
+        userJson.put("user",userMapper.selectById(userId));
+        return userJson.toJSONString();
     }
 }

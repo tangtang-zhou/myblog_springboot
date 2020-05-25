@@ -1,3 +1,4 @@
+/*
 package com.tang.Interceptor;
 
 import com.auth0.jwt.JWT;
@@ -5,9 +6,6 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.tang.mapper.UserMapper;
-import com.tang.pojo.User;
-import com.tang.service.UserService;
 import com.tang.util.PassToken;
 import com.tang.util.UserLoginToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,3 +80,4 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                                 Object o, Exception e) throws Exception {
     }
 }
+*/

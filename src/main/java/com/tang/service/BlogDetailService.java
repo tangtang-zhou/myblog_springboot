@@ -1,6 +1,5 @@
 package com.tang.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.tang.pojo.BlogDetail;
 
 import java.util.List;
@@ -15,6 +14,7 @@ import java.util.List;
  */
 public interface BlogDetailService {
     public int saveBlog(BlogDetail blogDetail);
-    public List<BlogDetail> getAllBlog();
+    public String getBlogByPage(int page,int size);
     public int deleteBlog (Integer blogId);
+    public int updateBlog(BlogDetail blogDetail);
 }

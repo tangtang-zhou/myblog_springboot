@@ -1,3 +1,4 @@
+/*
 package com.tang.config;
 
 import com.tang.Interceptor.AuthenticationInterceptor;
@@ -18,3 +19,4 @@ public class InterceptorConfig implements WebMvcConfigurer {
         return new AuthenticationInterceptor();
     }
 }
+*/

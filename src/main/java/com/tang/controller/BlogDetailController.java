@@ -29,9 +29,9 @@ public class BlogDetailController {
         return blogDetailService.saveBlog(blog);
     }
 
-    @GetMapping("/getAllArticle")
+    /*@GetMapping("/getAllArticle")
     public List<BlogDetail> getAllBlog(){
         return blogDetailService.getAllBlog();
-    }
+    }*/
 }
 

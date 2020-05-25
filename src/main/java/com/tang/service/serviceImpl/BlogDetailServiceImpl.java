@@ -1,14 +1,12 @@
 package com.tang.service.serviceImpl;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tang.mapper.BlogDetailMapper;
 import com.tang.pojo.BlogDetail;
 import com.tang.service.BlogDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * <p>
@@ -23,6 +21,7 @@ public class BlogDetailServiceImpl implements BlogDetailService {
 
     @Autowired
     BlogDetailMapper detailMapper;
+    private JSONObject blogJson;
 
     @Override
     public int saveBlog(BlogDetail blogDetail) {
@@ -30,13 +29,24 @@ public class BlogDetailServiceImpl implements BlogDetailService {
     }
 
     @Override
-    public List<BlogDetail> getAllBlog() {
-        return detailMapper.selectList(null);
+    public String getBlogByPage(int page, int size) {
+        blogJson = new JSONObject();
+        Page<BlogDetail> pageBlog = new Page<>(page, size);
+        detailMapper.selectPage(pageBlog,null);
+        blogJson.put("blogList",pageBlog.getRecords());
+        blogJson.put("total",pageBlog.getTotal());
+        blogJson.put("allPage",pageBlog.getPages());
+        return blogJson.toJSONString();
     }
 
     @Override
     public int deleteBlog(Integer blogId) {
         return detailMapper.deleteById(blogId);
+    }
+
+    @Override
+    public int updateBlog(BlogDetail blogDetail) {
+        return detailMapper.updateById(blogDetail);
     }
 
 

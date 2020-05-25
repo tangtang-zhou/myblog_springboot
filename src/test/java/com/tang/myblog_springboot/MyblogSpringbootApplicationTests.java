@@ -1,46 +1,16 @@
 package com.tang.myblog_springboot;
 
-import com.baomidou.mybatisplus.annotation.DbType;
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
-import com.baomidou.mybatisplus.generator.config.GlobalConfig;
-import com.baomidou.mybatisplus.generator.config.PackageConfig;
-import com.baomidou.mybatisplus.generator.config.StrategyConfig;
-import com.baomidou.mybatisplus.generator.config.po.TableFill;
-import com.baomidou.mybatisplus.generator.config.rules.DateType;
-import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-
-import com.tang.mapper.BlogDetailMapper;
-import com.tang.mapper.FileMapper;
-import com.tang.mapper.UserMapper;
 import com.tang.pojo.*;
 import com.tang.service.BlogDetailService;
-import com.tang.service.DetailService;
 import com.tang.service.FileService;
-import com.tang.service.UserService;
-import com.tang.service.serviceImpl.BlogDetailServiceImpl;
-import com.tang.service.serviceImpl.UserServiceImpl;
-import com.tang.util.pages.PageRequest;
-import com.tang.util.pages.PageResult;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
 class MyblogSpringbootApplicationTests {
-    @Autowired
-    DetailService detailService;
-
-    @Autowired
-    UserMapper userMapper;
-    @Autowired
-    UserService userService;
     @Autowired
     FileService fileService;
     @Autowired
@@ -60,8 +30,8 @@ class MyblogSpringbootApplicationTests {
         //blogDetailService.updateById(blogDetail);
         //blogDetailService.deleteById(11);
 
-        List<BlogDetail> allBlog = blogDetailService.getAllBlog();
-        allBlog.forEach(System.out::println);
+        String blogByPage = blogDetailService.getBlogByPage(1, 2);
+        System.out.println(blogByPage);
 
 
         //blogDetailService.saveBlog(blogDetail);

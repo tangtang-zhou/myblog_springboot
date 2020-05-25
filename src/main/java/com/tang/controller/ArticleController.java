@@ -1,8 +1,7 @@
+/*
 package com.tang.controller;
 
-import com.tang.pojo.Detail;
 import com.tang.pojo.Img;
-import com.tang.service.DetailService;
 import com.tang.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -75,3 +74,4 @@ public class ArticleController {
     }
 
 }
+*/

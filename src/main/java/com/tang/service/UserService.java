@@ -1,20 +1,22 @@
 package com.tang.service;
 
 import com.tang.pojo.User;
-import com.tang.util.pages.PageRequest;
-import com.tang.util.pages.PageResult;
 
+import java.util.List;
+
+/**
+ * <p>
+ *  服务类
+ * </p>
+ *
+ * @author 汤州
+ * @since 2020-05-24
+ */
 public interface UserService {
 
-    public User getUserById(Integer id);
+    //参数1：当前页  参数2：每页数量
+    public String getUserByPages(int page,int size);
 
-    // 一个作者有多个文章
-    public String getUserAllBlog(User user);
-
-    public String getUserByPhone(User user);
-
-    public PageResult getPageUser(PageRequest pageRequest);
-
-    public int insertUser(String phone,String password);
+    public String getUserById(int userId);
 
 }

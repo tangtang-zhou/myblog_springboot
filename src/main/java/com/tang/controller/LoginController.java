@@ -1,7 +1,6 @@
+/*
 package com.tang.controller;
 
-import com.tang.pojo.User;
-import com.tang.service.UserService;
 import com.tang.util.pages.PageRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,3 +30,4 @@ public class LoginController {
     }
 
 }
+*/

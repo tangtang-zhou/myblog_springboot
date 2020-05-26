@@ -2,6 +2,7 @@ package com.tang.service;
 
 import com.tang.pojo.User;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -18,5 +19,7 @@ public interface UserService {
     public String getUserByPages(int page,int size);
 
     public String getUserById(int userId);
+
+    public User getUserByPhone(String phone);
 
 }

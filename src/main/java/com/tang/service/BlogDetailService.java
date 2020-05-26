@@ -2,8 +2,6 @@ package com.tang.service;
 
 import com.tang.pojo.BlogDetail;
 
-import java.util.List;
-
 /**
  * <p>
  *  服务类

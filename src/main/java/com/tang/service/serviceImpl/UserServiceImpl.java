@@ -45,4 +45,10 @@ public class UserServiceImpl implements UserService {
         userJson.put("user",userMapper.selectById(userId));
         return userJson.toJSONString();
     }
+
+    @Override
+    public User getUserByPhone(String phone) {
+
+        return null;
+    }
 }

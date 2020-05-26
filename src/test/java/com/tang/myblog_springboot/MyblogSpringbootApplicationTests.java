@@ -1,5 +1,6 @@
 package com.tang.myblog_springboot;
 
+import com.tang.mapper.UserMapper;
 import com.tang.pojo.*;
 import com.tang.service.BlogDetailService;
 import com.tang.service.FileService;
@@ -12,9 +13,7 @@ import java.util.List;
 @SpringBootTest
 class MyblogSpringbootApplicationTests {
     @Autowired
-    FileService fileService;
-    @Autowired
-    BlogDetailService blogDetailService;
+    UserMapper userMapper;
 
     @Test
     void contextLoads() {
@@ -30,9 +29,10 @@ class MyblogSpringbootApplicationTests {
         //blogDetailService.updateById(blogDetail);
         //blogDetailService.deleteById(11);
 
-        String blogByPage = blogDetailService.getBlogByPage(1, 2);
-        System.out.println(blogByPage);
-
+        /*String blogByPage = blogDetailService.getBlogByPage(1, 2);
+        System.out.println(blogByPage);*/
+        User userByPhone = userMapper.getUserByPhone("13228651024");
+        System.out.println(userByPhone);
 
         //blogDetailService.saveBlog(blogDetail);
         /*// 需要构建一个 代码自动生成器 对象      

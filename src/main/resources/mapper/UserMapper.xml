@@ -4,20 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tang.mapper.UserMapper">
 
-    <select id="getUserById" resultType="User">
-        select * from user where uid=#{uid}
-    </select>
-
-    <select id="getUserByPhone" resultType="UserCheck">
+    <select id="getUserByPhone" resultType="User">
         select * from user where phone = #{phone}
     </select>
 
-    <insert id="insertUser" parameterType="String">
-        insert into user (phone,password) value (#{phone},#{password})
-    </insert>
-
     <!--一个作者有多个文章-->
-    <select id="getUserAllBlog" resultMap="UserBlog">
+   <!-- <select id="getUserAllBlog" resultMap="UserBlog">
         select * from user,blogdetail b where user.uid=b.user and user.uid=#{id}
     </select>
     <resultMap id="UserBlog" type="User">
@@ -25,10 +17,6 @@
         <collection property="detailList" ofType="Detail">
             <result property="title" column="title"/>
         </collection>
-    </resultMap>
-
-    <select id="getPageUser" resultType="User">
-        select * from user
-    </select>
+    </resultMap>-->
 
 </mapper>
